@@ -2,9 +2,8 @@
 title: "**EVPI:** Expected Value of Perfect Information"
 output: 
   postr::flex_dashboard_poster:
-    render_print: true
+    render_print: false
 ---
-
 
 ## Header row {data-height=15}
 
@@ -16,47 +15,39 @@ output:
   **Expected Value of Perfect Information**
   </h3></center></td>
   <td rowspan="2">
-  <img src="resources/INRES_Logo.png" style="width:128px"></img>
+  <img src="resources/INRES_Logo.png" style="width:100px"></img>
   </td>
 </tr>
 <tr><td><center>
-  **Author**
+  **INRES Team**
   </center></td>
 </tr>
 </table> 
 
 <hr>
 
-**Abstract** This paragraph will be rendered inside a wide box right below the
-poster title and authors information.
-The `render_print` format option is set to `TRUE` by default in this poster
-sample, and will result in `postr::render` being called when knitting the
-document (see `help("flex_dashboard_poster", package = postr)`).
-To disable this (recommended in the initial stages of poster development)
-set the `render_print` option to `FALSE`.
+**Abstract** 
 
-
-
+The Expected Value of Perfect Information *EVPI* measures the expected loss of gain (expected opportunity loss, EOL) incurred due to lack of information about a paricular variable. It is determined by examining the influence of that variable on the output value of a decision model. EVPI is best illustrated by a plot of weighed decision outcomes as a function of the variable in question. If this curve intersects zero and the recommendation without perfect information is to go ahead with the project, the EVPI is the negative area under the curve, or the positive area if the recommendation is not to go ahead. If there is no intersection point, the EVPI is zero.
 
 ## Body row {data-height=75}
+<!---  This section is below authors, across the whole poster--->
 
 ### **Column 1 title**
+<!---  Three '#' symbols are a demarcator for a new column--->
 
 #### Heading
+<!---  This section defines the first column of the body row of the poster.--->
 
-This section defines the first column of the body row of the poster.
-You can include regular markdown text and R `code chunks`.
+<!---  Include regular markdown text and R `code chunks`. --->
 
-```{r}
-hist(volcano)
+```{r, dpi=300}
+
 ```
-
 
 ### **Column 2 title**
 
 Content for the second column.
-
-To show the code in the chunks you have to ask for it with `echo=TRUE`.
 
 ```{r volcano-heat, echo=TRUE, eval=FALSE}
 filled.contour(volcano, color.palette = terrain.colors, asp = 1)
@@ -68,21 +59,10 @@ You can also include data frames as tables just by printing them
 head(iris)
 ```
 
-
-
 ### **Column 3 title**
-
-This template shows 3 columns in the body row, you can change this by adding or removing third level headings (i.e. lines starting with ###).
-
-
-
-
 
 ## Footer row {data-height=10} 
 
 ### {data-width=50}
 
-
 ### {data-width=50 .small}
-
-

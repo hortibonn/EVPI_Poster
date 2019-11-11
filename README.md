@@ -17,6 +17,10 @@ Render a printable A1 image
 
 `postr::render("EVPI_poster/EVPI_poster.Rmd")`
 
+### Generate the poster as an image file
+
+Run `postr::render("EVPI_poster/EVPI_poster.html")`. Use `aspect_ratio` and `poster_width` to make this the right dimensions for the conference.
+
 ## References
 
 JJ Allaire, Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng and Winston Chang (2017). rmarkdown: Dynamic Documents for R. R package version 1.8. https://CRAN.R-project.org/package=rmarkdown
