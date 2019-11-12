@@ -10,18 +10,27 @@ author:
     affil: 1
   - name: Cory Whitney
     affil: 1
+    orcid: '0000-0003-4988-4583'
   - name: Eike Luedeling
     affil: 1
+    orcid: '0000-0002-7316-3631'
 affiliation:
   - num: 1
     address: INRES Horticultural Sciences, University of Bonn
-column_numbers: 3
-logoright_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
-logoleft_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
+column_numbers: 2
+logoright_name: images/Uni_Bonn_Picture.png
+logoleft_name: images/INRES_Logo.png
+primary_colour: "white"
+title_textcol: "black"
+author_textcol: "black"
+affiliation_textcol: "black"
+sectitle_textcol: "black"
+poster_height: "46in"
+poster_width: "33in"
 output: 
   posterdown::posterdown_html:
     self_contained: false
-bibliography: Ethnobotany.bib
+bibliography: EVPI.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -30,54 +39,63 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Introduction
 
-Welcome to `posterdown` ! This is my attempt to provide a semi-smooth workflow for those who wish to take their R Markdown skills to the conference world. Most features from R Markdown are available in this package such as Markdown section notation, figure captioning, and even citations like this one [@R-rmarkdown]. The rest of this example poster will show how you can insert typical conference poster features into your own document. 
+The expected value of perfect information (EVPI) can be used to identify the most critical knowledge gaps [@Coyle2008; @hubbard2014] and reveal variables for which more information can support decisions [@lanzanova2019]. 
 
-## Objectives
+$EVPI$ is calculated as the expected value $EV$ of the decision $D$ with perfect information $PI$, minus the expected value of the decision with current imperfect information $II$:
 
-1. Easy to use reproducible poster design. 
-2. Integration with R Markdown.
-3. Easy transition from `posterdown` to `pagedown` report or manuscript documents [@R-pagedown].
+$$
+EVPI = EV D|PI - EV D|II
+$$
 
-# Methods
+# Calculating EVPI
 
-This package uses the same workflow approach as the R Markdown you know and love. Basically it goes from RMarkdown > Knitr > Markdown > Pandoc > HTML/CSS > PDF. You can even use the bibliography the same way [@R-posterdown].
+## Discreet data
 
-# Results
+Calculating $EVPI$ with discreet data can be done using estimation of probabilities and possible gains or losses. We use the example of investment in the stock market vs. deposits (bonds): 
 
-Usually you want to have a nice table displaying some important results that you have calculated. In `posterdown` this is as easy as using the `kable` table formatting you are probably use to as per typical R Markdown formatting.
+<img src="images/stock_market_example.jpg" alt="stock market example" align="center" width = "75%" height="75%"/>
 
-You can reference tables like so: Table \@ref(tab:mytable). Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam placerat augue at velit tincidunt semper. Donec elementum porta posuere. Nullam interdum, odio at tincidunt feugiat, turpis nisi blandit eros, eu posuere risus felis non quam. Nam eget lorem odio. Duis et aliquet orci. Phasellus nec viverra est.
+The expected outcome of the decision to invest in deposits $Expdeposit$ is calculated as the value (y-axis) times the probability of loss or gain under each condition (x-axis):
+$$
+Expdeposit : 0.2 \cdot 500 + 0.3 \cdot 500 
+		+ 0.5 \cdot 500 		= 500 
+$$
+The expected outcomes of the decision to invest in stocks $Expstock$ is the value of the decision times the probability of loss or gain under each condition:
+$$ Expstock:   0.2 \cdot -800 + 0.3 \cdot 600
+		+ 0.5 \cdot 1500		= 680 $$
+Because  $Expstock$ is the more likely decision to result in a gain it is also known as the Expected Maximum Value $EMV$.
 
-```{r mytable, out.width='80%'}
-knitr::kable(iris[1:10, 1:4], caption = 'Table caption.',align = 'c',"html")
-```
+The expected value of the decision given perfect information $EV|PI$ is calculated as the sum of all the best options (always making the more gainful choice) multipled by the respective probabilities:
+$$
+EV|PI :     0.2 \cdot 500 + 0.3 \cdot 600 
+		+ 0.5 \cdot 1500  		= 1030
+$$
+The Expected Value of Perfect Information $EVPI$ is caculated as the difference between the decision given perfect information $EV|PI$ and the the Expected Maximum Value $EMV$.
+$$
+EVPI :      1030 – 680 		= 350
+$$
 
-Or with figures: Figure \@ref(fig:standard-plot), or Figure \@ref(fig:morefigs).
+Knowing the direction the market will go (having perfect information) before making our decision would help us take hte best deision here. We shoul dbe willing to pay up to 350€ for perfect information on the outcomes.
 
-```{r standard-plot, out.width='80%', fig.align='center', fig.cap='Great figure!', fig.height=5}
-plot(mtcars[1:2])
-```
+<br/> <!--- add a break to the next column --->
 
-```{r morefigs, out.width='80%', echo=TRUE, fig.cap='Amazing, right?!', fig.height=5}
-data <- iris
-plot(x = data$Sepal.Length, 
-     y = data$Sepal.Width, 
-     col = data$Species,
-     pch = 19, 
-     xlab = "Sepal Length (cm)",
-     ylab = "Sepal Width (cm)")
-```
+## Continuous data
 
-# Next Steps
+In the following example of an agricultural decision to apply fertilizer. We assume that the nutrient content of the soil will follow a normal distribution and that the additional gain in yield under the decision not to apply fertilizer will remain constant (<span style="color:green">green line</span>). 
 
-Aliquam sed faucibus risus, quis efficitur erat. Vestibulum semper mauris quis tempus eleifend. Aliquam sagittis dictum ipsum, quis viverra ligula eleifend ut. Curabitur sagittis vitae arcu eget faucibus. In non elementum felis. Duis et aliquam nunc. Nunc pulvinar sapien nunc, vel pretium nisi efficitur in. Fusce fringilla maximus leo et maximus. Fusce at ligula laoreet, iaculis mi at, auctor odio. Praesent sed elementum justo. Aenean consectetur risus rhoncus tincidunt efficitur. Praesent dictum mauris at diam maximus maximus [@R-posterdown].
+We simulate a response of the application of fertilizer (<span style="color:red">red line</span>) to show that at a certain point the positive results of the application ends and the fertilizer starts to cause losses in yield.
 
-# Conclusion
+A and B are the 'areas under the curve' calculated by taking the integral of the curve (up to and from the point of intersection with the zero line, respectively).
 
-Try `posterdown` out! Hopefully you like it!
+<img src="images/Agriculture_example.jpg" alt="agriculture example" align="center" width = "75%" height="75%"/>
 
-```{r, include=FALSE}
-knitr::write_bib(c('knitr','rmarkdown','posterdown','pagedown'), 'packages.bib')
-```
+In this case the expected value of the decision to apply no fertilizer is zero. The expected value of applying fertilizer is equal to $A - B$, which has a small positive value ($A$ is greater than $B$. This is the decision with the expected maximum value $EMV$ under uncertainty. 
+
+The Expected Value given Perfect Information $EV|PI$ is equal to $A$ and $EVPI$ is caculated as the difference between this and $EMV$ ($A-B$).
+
+$$
+EVPI :      A – (A - B) = B
+$$
+
 
 # References

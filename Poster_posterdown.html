@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<!--
+Font-awesome icons ie github or twitter
+-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
+
+<!--
+Google fonts api stuff
+-->
+
+
+
+<title>Expected Value of Perfect Information</title>
+
+
+
+
+
+<style>
+@page {
+size: 33in 46in;
+margin: 0;
+padding: 0;
+}
+body {
+margin: 0;
+font-size: 45px;
+width: 33in;
+height: 46in;
+padding: 0;
+text-align: justify;
+font-family: Palatino;
+}
+.poster_wrap {
+width: 33in;
+height: 46in;
+padding: 0cm;
+}
+.title_container {
+width: 33in;
+height: calc(46in * 0.15);
+overflow: hidden;
+background-color: white;
+border: 0 solid #0b4545;
+}
+.logo_left {
+float: left;
+width: 10%;
+height: 100%;
+background-color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.logo_right {
+float: right;
+width: 10%;
+height: 100%;
+background-color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.poster_title {
+text-align: center;
+position: relative;
+float: left;
+width: 80%;
+height: 100%;
+color: black;
+top: 50%;
+transform: translateY(-50%);
+-webkit-transform: translateY(-50%);
+}
+#title {
+font-family: Palatino;
+}
+/* unvisited link */
+a:link {
+color: #cc0000;
+}
+.mybreak {
+  break-before: column;
+}
+/* visited link */
+a:visited {
+color: #cc0000;
+}
+
+/* mouse over link */
+a:hover {
+color: #cc0000;
+}
+
+/* selected link */
+a:active {
+color: #cc0000;
+}
+.poster_body {
+-webkit-column-count: 2; /* Chrome, Safari, Opera */
+-moz-column-count: 2; /* Firefox */
+column-count: 2;
+-webkit-column-fill: auto;
+-moz-column-fill: auto;
+column-fill: auto;
+-webkit-column-rule-width: 1mm;
+-moz-column-rule-width: 1mm;
+column-rule-width: 1mm;
+-webkit-column-rule-style: dashed;
+-moz-column-rule-style: dashed;
+column-rule-style: dashed;
+-webkit-column-rule-color: white;
+-moz-column-rule-color: white;
+column-rule-color: white;
+column-gap: 1em;
+padding-left: 0.5em;
+padding-right: 0.5em;
+height: 100%;
+color: #000000
+background-color: #ffffff;
+}
+.poster_title h1 {
+font-size: 75pt;
+margin: 0;
+border: 0;
+font-weight: normal;
+}
+.poster_body_wrap{
+width: calc(33in + 0 + 0);
+height: calc(46in * 0.83);
+padding-top: calc(46in * 0.005);
+padding-bottom: calc(46in * 0.01);
+background-color: #ffffff;
+}
+.poster_title h3 {
+color: black;
+font-size: 50pt;
+margin: 0;
+border: 0;
+font-weight: normal;
+}
+.poster_title h3 > sup {
+  font-size: 35pt;
+  margin-left: 0.02em;
+}
+.poster_title h5 {
+color: black;
+font-size: 35pt;
+margin: 0;
+border: 0;
+font-weight: normal;
+}
+img {
+margin-top: 2cm;
+margin-bottom: 0;
+}
+.section {
+  padding: 0.2em;
+}
+.poster_body h1 {
+text-align: center;
+color: black;
+font-size: 65pt;
+border: 2mm solid white;
+background-color: white;
+border-radius: 4mm 0mm;
+margin-top: 2mm;
+margin-bottom: 2mm;
+font-weight: normal;
+}
+.poster_body h2 {
+color: #000000;
+font-size: 40pt;
+padding-left: 4mm;
+font-weight: normal;
+}
+.span {
+width: 200%;
+}
+/* center align leaflet map,
+from https://stackoverflow.com/questions/52112119/center-leaflet-in-a-rmarkdown-document */
+.html-widget {
+margin: auto;
+position: sticky;
+margin-top: 2cm;
+margin-bottom: 2cm;
+}
+.leaflet.html-widget.html-widget-static-bound.leaflet-container.leaflet-touch.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag.leaflet-touch-zoom {
+position: sticky;
+width: 100%;
+}
+pre.sourceCode.r {
+background-color: #dddddd40;
+border-radius: 4mm;
+padding: 4mm;
+width: 75%;
+/* align-items: center; */
+margin: auto;
+padding-left: 2cm;
+}
+code.sourceCode.r{
+background-color: transparent;
+font-size: 20pt;
+border-radius: 2mm;
+}
+.caption {
+font-size: 25pt;
+}
+.table caption {
+font-size: 25pt;
+padding-bottom: 3mm;
+
+}
+code {
+font-size: 1em;
+font-family: monospace;
+background-color: #00808024;
+color: white;
+padding: 1.2mm;
+border-radius: 2mm;
+}
+.poster_title code {
+font-size: 1em;
+}
+table {
+font-size: 40px;
+margin: auto;
+border-top: 3px solid #666;
+border-bottom: 3px solid #666;
+}
+table thead th {
+border-bottom: 3px solid #ddd;
+}
+td {
+padding: 8px;
+}
+th {
+padding: 15px;
+}
+caption {
+margin-bottom: 10px;
+}
+.poster_body p {
+margin-right: 4mm;
+margin-left: 4mm;
+margin-top: 6mm;
+margin-bottom: 10mm;
+}
+.poster_body ol {
+margin-right: 4mm;
+margin-left: 4mm;
+}
+#ul {
+margin-right: 4mm;
+margin-left: 4mm;
+}
+.references p {
+font-size: 20pt;
+}
+.orcid img {
+  width: 1em;
+}
+</style>
+</head>
+<body>
+
+
+<div class="poster_wrap">
+<div class="title_container">
+<!-- Left Logo  -->
+<div class="logo_left">
+<img src= 'images/INRES_Logo.png' style="width: 80%">
+</div>
+<!-- Poster Title -->
+<div class= "poster_title">
+<h1 id="title">Expected Value of Perfect Information</h1>
+<h3 id="author">Katja Schiffers<sup>1, <a class="orcid" href="https://orcid.org/0000-0003-2559-6579"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup>, Hoa Do<sup>1</sup>, Eduardo Fernandez<sup>1</sup>, Cory Whitney<sup>1, <a class="orcid" href="https://orcid.org/0000-0003-4988-4583"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup>, Eike Luedeling<sup>1, <a class="orcid" href="https://orcid.org/0000-0002-7316-3631"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup></h3><br>
+<h5 id="affiliation"><sup>1</sup> INRES Horticultural Sciences, University of Bonn</h5>
+</div>
+<!-- Right Logo  -->
+<div class="logo_right">
+<img src=images/Uni_Bonn_Picture.png style="width: 80%">
+</div>
+</div>
+
+<div class='poster_body_wrap'>
+<div class='poster_body'>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>The expected value of perfect information (EVPI) can be used to identify the most critical knowledge gaps <span class="citation">(Coyle and Oakley 2008; Hubbard 2014)</span> and reveal variables for which more information can support decisions <span class="citation">(Lanzanova et al. 2019)</span>.</p>
+<p><span class="math inline">\(EVPI\)</span> is calculated as the expected value <span class="math inline">\(EV\)</span> of the decision <span class="math inline">\(D\)</span> with perfect information <span class="math inline">\(PI\)</span>, minus the expected value of the decision with current imperfect information <span class="math inline">\(II\)</span>:</p>
+<p><span class="math display">\[
+EVPI = EV D|PI - EV D|II
+\]</span></p>
+</div>
+<div id="calculating-evpi" class="section level1">
+<h1>Calculating EVPI</h1>
+<div id="discreet-data" class="section level2">
+<h2>Discreet data</h2>
+<p>Calculating <span class="math inline">\(EVPI\)</span> with discreet data can be done using estimation of probabilities and possible gains or losses. We use the example of investment in the stock market vs. deposits (bonds):</p>
+<p><img src="images/stock_market_example.jpg" alt="stock market example" align="center" width = "75%" height="75%"/></p>
+<p>The expected outcome of the decision to invest in deposits <span class="math inline">\(Expdeposit\)</span> is calculated as the value (y-axis) times the probability of loss or gain under each condition (x-axis):
+<span class="math display">\[
+Expdeposit : 0.2 \cdot 500 + 0.3 \cdot 500 
+        + 0.5 \cdot 500         = 500 
+\]</span>
+The expected outcomes of the decision to invest in stocks <span class="math inline">\(Expstock\)</span> is the value of the decision times the probability of loss or gain under each condition:
+<span class="math display">\[ Expstock:   0.2 \cdot -800 + 0.3 \cdot 600
+        + 0.5 \cdot 1500        = 680 \]</span>
+Because <span class="math inline">\(Expstock\)</span> is the more likely decision to result in a gain it is also known as the Expected Maximum Value <span class="math inline">\(EMV\)</span>.</p>
+<p>The expected value of the decision given perfect information <span class="math inline">\(EV|PI\)</span> is calculated as the sum of all the best options (always making the more gainful choice) multipled by the respective probabilities:
+<span class="math display">\[
+EV|PI :     0.2 \cdot 500 + 0.3 \cdot 600 
+        + 0.5 \cdot 1500        = 1030
+\]</span>
+The Expected Value of Perfect Information <span class="math inline">\(EVPI\)</span> is caculated as the difference between the decision given perfect information <span class="math inline">\(EV|PI\)</span> and the the Expected Maximum Value <span class="math inline">\(EMV\)</span>.
+<span class="math display">\[
+EVPI :      1030 – 680      = 350
+\]</span></p>
+<p>Knowing the direction the market will go (having perfect information) before making our decision would help us take hte best deision here. We shoul dbe willing to pay up to 350€ for perfect information on the outcomes.</p>
+<p><br/> <!--- add a break to the next column ---></p>
+</div>
+<div id="continuous-data" class="section level2">
+<h2>Continuous data</h2>
+<p>In the following example of an agricultural decision to apply fertilizer. We assume that the nutrient content of the soil will follow a normal distribution and that the additional gain in yield under the decision not to apply fertilizer will remain constant (<span style="color:green">green line</span>).</p>
+<p>We simulate a response of the application of fertilizer (<span style="color:red">red line</span>) to show that at a certain point the positive results of the application ends and the fertilizer starts to cause losses in yield.</p>
+<p>A and B are the ‘areas under the curve’ calculated by taking the integral of the curve (up to and from the point of intersection with the zero line, respectively).</p>
+<p><img src="images/Agriculture_example.jpg" alt="agriculture example" align="center" width = "75%" height="75%"/></p>
+<p>In this case the expected value of the decision to apply no fertilizer is zero. The expected value of applying fertilizer is equal to <span class="math inline">\(A - B\)</span>, which has a small positive value (<span class="math inline">\(A\)</span> is greater than <span class="math inline">\(B\)</span>. This is the decision with the expected maximum value <span class="math inline">\(EMV\)</span> under uncertainty.</p>
+<p>The Expected Value given Perfect Information <span class="math inline">\(EV|PI\)</span> is equal to <span class="math inline">\(A\)</span> and <span class="math inline">\(EVPI\)</span> is caculated as the difference between this and <span class="math inline">\(EMV\)</span> (<span class="math inline">\(A-B\)</span>).</p>
+<p><span class="math display">\[
+EVPI :      A – (A - B) = B
+\]</span></p>
+</div>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references">
+<div id="ref-Coyle2008">
+<p>Coyle, D., and J. Oakley. 2008. “Estimating the Expected Value of Partial Perfect Information: A Review of Methods.” <em>Eur J Health Econ</em> 9 (3): 251–9. <a href="https://doi.org/10.1007/s10198-007-0069-y">https://doi.org/10.1007/s10198-007-0069-y</a>.</p>
+</div>
+<div id="ref-hubbard2014">
+<p>Hubbard, Douglas W. 2014. <em>How to Measure Anything: Finding the Value of Intangibles in Business</em>. 2nd ed. Vol. Second Edition. Hoboken, New Jersey: John Wiley &amp; Sons.</p>
+</div>
+<div id="ref-lanzanova2019">
+<p>Lanzanova, Denis, Cory Whitney, Keith Shepherd, and Eike Luedeling. 2019. “Improving Development Efficiency Through Decision Analysis: Reservoir Protection in Burkina Faso.” <em>Environmental Modelling &amp; Software</em> 115 (May): 164–75. <a href="https://doi.org/10.1016/j.envsoft.2019.01.016">https://doi.org/10.1016/j.envsoft.2019.01.016</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+var script = document.createElement("script");
+script.type = "text/javascript";
+var src = "true";
+if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+if (location.protocol !== "file:" && /^https?:/.test(src))
+src = src.replace(/^https?:/, '');
+script.src = src;
+document.getElementsByTagName("head")[0].appendChild(script);
+})();
+</script>
+
+
+</body>
+</html>
