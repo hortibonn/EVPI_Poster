@@ -97,7 +97,7 @@ $$
 
 # R Tools
 
-The 'empirical_EVPI()' function in R's 'decisionSupport' library [@decisionSupport2017] calculates EVPI for a simple model with the predictor variable sampled from a normal distribution. The 'multi_EVPI()' function does the same with multiple variables.
+The 'empirical_EVPI()' function in R's 'decisionSupport' library [@decisionSupport2017] calculates EVPI for a simple model like the one above. The 'multi_EVPI()' function does the same with more complex models with multiple variables.
 
 # References
 
