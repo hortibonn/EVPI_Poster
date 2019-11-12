@@ -6,8 +6,6 @@ author:
     orcid: '0000-0003-2559-6579'
   - name: Hoa Do
     affil: 1
-  - name: Eduardo Fernandez
-    affil: 1
   - name: Cory Whitney
     affil: 1
     orcid: '0000-0003-4988-4583'
@@ -97,5 +95,10 @@ $$
 EVPI :      A – (A - B) = B
 $$
 
+# R Tools
+
+The 'empirical_EVPI()' function in R's 'decisionSupport' library [@decisionSupport2017] calculates EVPI for a simple model with the predictor variable sampled from a normal distribution. The 'multi_EVPI()' function does the same with multiple variables.
 
 # References
+
+
