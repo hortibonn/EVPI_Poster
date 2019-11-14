@@ -296,7 +296,7 @@ font-size: 20pt;
 <div class='poster_body'>
 <div id="what-is-evpi" class="section level1">
 <h1>What is EVPI</h1>
-<p>The expected value of perfect information (EVPI) is used to express maximized expected utility. It is the difference between the expected value given perfect information and the best expected value given current alternatives<span class="citation"><sup>1</sup></span>. EVPI can help identify critical knowledge gaps<span class="citation"><sup>2,3</sup></span> and reveal variables for which more information would better indicate the best decision outcomes<span class="citation"><sup>4</sup></span>. EVPI is often expressed as the highest price that decision makers should be willing to pay for perfect information<span class="citation"><sup>3</sup></span>. However, there are often decision criterion other than money. Therefore, we define EVPI as the potential gain given perfect information on all of the unknown model factors.</p>
+<p>The expected value of perfect information (EVPI) is used to express maximized expected utility. It is the difference between the expected value given perfect information and the best expected value given current alternatives<span class="citation"><sup>1</sup></span>. EVPI can help identify critical knowledge gaps<span class="citation"><sup>2,3</sup></span> and reveal variables for which more information could inform the best decision option<span class="citation"><sup>4</sup></span>. EVPI is often expressed as the highest price that decision makers should be willing to pay for perfect information<span class="citation"><sup>3</sup></span>. However, there are often decision criterion other than money. Therefore, we define EVPI as the potential gain given perfect information on all of the unknown model factors.</p>
 <p>EVPI is calculated as the expected value <span class="math inline">\(EV\)</span> of the decision <span class="math inline">\(D\)</span> with perfect information <span class="math inline">\(PI\)</span>, minus the expected value of the decision with current imperfect information <span class="math inline">\(II\)</span>:
 <span class="math display">\[
 EVPI = EV D|PI - EV D|II
@@ -308,7 +308,7 @@ EVPI = EV D|PI - EV D|II
 <h2>Discrete data</h2>
 <p>Calculating <span class="math inline">\(EVPI\)</span> with discrete data can be done using estimation of probabilities and possible gains or losses. We use the example of investment in the stock market vs. deposits (bonds):</p>
 <p><img src="images/stock_market_example.jpg" alt="stock market example" align="center" width = "75%" height="75%"/></p>
-<p>The expected value of deposit investment <span class="math inline">\(Expdeposit\)</span> is calculated as the the probability of different states of the economy (x-axis) times the expected loss or gain in each condition (y-axis):
+<p>The expected value of deposit investment <span class="math inline">\(Expdeposit\)</span> is calculated as the probability of different states of the economy (x-axis) times the expected loss or gain in each condition (y-axis):
 <span class="math display">\[
 Expdeposit : 0.2 \cdot 500 + 0.3 \cdot 500 
         + 0.5 \cdot 500         = 500 
@@ -332,10 +332,10 @@ Knowing the direction the market will go (having perfect information) before mak
 <h2>Continuous data</h2>
 <p>In the following example of an agricultural decision to apply fertilizer, we assume that the nutrient content of the soil will follow a normal distribution and that the additional gain in yield under the decision not to apply fertilizer will remain constant (<span style="color:green">green line</span>).</p>
 <p>We simulate a response of the application of fertilizer (<span style="color:red">red line</span>) to show that at a certain point the positive results of the application ends and the fertilizer starts to cause losses in yield.</p>
-<p>A and B are the ‘areas under the curve’ calculated by taking the integral of the curve (up to and from the point of intersection with the zero line, respectively).</p>
+<p>A and B are the ‘areas under the curve’ and are calculated by taking the integral of the curve up to and from the point of intersection with the zero line, respectively.</p>
 <p><img src="images/Agriculture_example.jpg" alt="agriculture example" align="center" width = "75%" height="75%"/></p>
-<p>In this case the expected value of the decision to apply no fertilizer is zero. The expected value of applying fertilizer is equal to <span class="math inline">\(A - B\)</span>, which has a small positive value (<span class="math inline">\(A\)</span> is greater than <span class="math inline">\(B\)</span>. This is the decision with the expected maximum value <span class="math inline">\(EMV\)</span> under uncertainty.</p>
-<p>The Expected Value given Perfect Information <span class="math inline">\(EV|PI\)</span> is equal to <span class="math inline">\(A\)</span> and <span class="math inline">\(EVPI\)</span> is caculated as the difference between this and <span class="math inline">\(EMV\)</span> (<span class="math inline">\(A-B\)</span>).</p>
+<p>In this case the expected value of the decision to apply no fertilizer is zero. The expected value of applying fertilizer is equal to <span class="math inline">\(A - B\)</span>, which has a small positive value (<span class="math inline">\(A\)</span> is greater than <span class="math inline">\(B\)</span>). This is the decision with the expected maximum value <span class="math inline">\(EMV\)</span> under uncertainty.</p>
+<p>The Expected Value given Perfect Information <span class="math inline">\(EV|PI\)</span> is equal to <span class="math inline">\(A\)</span> and <span class="math inline">\(EVPI\)</span> is caculated as the difference between this and <span class="math inline">\(EMV\)</span>.</p>
 <p><span class="math display">\[
 EVPI :      A – (A - B) = B
 \]</span></p>
@@ -343,7 +343,7 @@ EVPI :      A – (A - B) = B
 </div>
 <div id="r-tools" class="section level1">
 <h1>R Tools</h1>
-<p>The <em>empirical_EVPI()</em> function in R’s decisionSupport library<span class="citation"><sup>5</sup></span> calculates EVPI for a simple model like the one above. The <em>multi_EVPI()</em> function does the same with more complex models with multiple variables.</p>
+<p>The <em>empirical_EVPI()</em> function in R’s decisionSupport library<span class="citation"><sup>5</sup></span> calculates EVPI for a simple model with continuous data like the one above. The <em>multi_EVPI()</em> function does the same with more complex models with multiple variables.</p>
 </div>
 <div id="references" class="section level1 unnumbered">
 <h1>References</h1>

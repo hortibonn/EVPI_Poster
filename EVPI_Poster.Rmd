@@ -36,7 +36,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # What is EVPI
 
-The expected value of perfect information (EVPI) is used to express maximized expected utility. It is the difference between the expected value given perfect information and the best expected value given current alternatives [@Strong2014]. EVPI can help identify critical knowledge gaps [@Coyle2008; @hubbard2014] and reveal variables for which more information would better indicate the best decision outcomes  [@lanzanova2019]. EVPI is often expressed as the highest price that decision makers should be willing to pay for perfect information [@hubbard2014]. However, there are often decision criterion other than money. Therefore, we define EVPI as the potential gain given perfect information on all of the unknown model factors.
+The expected value of perfect information (EVPI) is used to express maximized expected utility. It is the difference between the expected value given perfect information and the best expected value given current alternatives [@Strong2014]. EVPI can help identify critical knowledge gaps [@Coyle2008; @hubbard2014] and reveal variables for which more information could inform the best decision option  [@lanzanova2019]. EVPI is often expressed as the highest price that decision makers should be willing to pay for perfect information [@hubbard2014]. However, there are often decision criterion other than money. Therefore, we define EVPI as the potential gain given perfect information on all of the unknown model factors.
 
 EVPI is calculated as the expected value $EV$ of the decision $D$ with perfect information $PI$, minus the expected value of the decision with current imperfect information $II$:
 $$
@@ -51,7 +51,7 @@ Calculating $EVPI$ with discrete data can be done using estimation of probabilit
 
 <img src="images/stock_market_example.jpg" alt="stock market example" align="center" width = "75%" height="75%"/>
 
-The expected value of deposit investment $Expdeposit$ is calculated as the the probability of different states of the economy (x-axis) times the expected loss or gain in each condition (y-axis):
+The expected value of deposit investment $Expdeposit$ is calculated as the probability of different states of the economy (x-axis) times the expected loss or gain in each condition (y-axis):
 $$
 Expdeposit : 0.2 \cdot 500 + 0.3 \cdot 500 
 		+ 0.5 \cdot 500 		= 500 
@@ -80,13 +80,13 @@ In the following example of an agricultural decision to apply fertilizer, we ass
 
 We simulate a response of the application of fertilizer (<span style="color:red">red line</span>) to show that at a certain point the positive results of the application ends and the fertilizer starts to cause losses in yield.
 
-A and B are the 'areas under the curve' calculated by taking the integral of the curve (up to and from the point of intersection with the zero line, respectively).
+A and B are the 'areas under the curve' and are calculated by taking the integral of the curve up to and from the point of intersection with the zero line, respectively.
 
 <img src="images/Agriculture_example.jpg" alt="agriculture example" align="center" width = "75%" height="75%"/>
 
-In this case the expected value of the decision to apply no fertilizer is zero. The expected value of applying fertilizer is equal to $A - B$, which has a small positive value ($A$ is greater than $B$. This is the decision with the expected maximum value $EMV$ under uncertainty. 
+In this case the expected value of the decision to apply no fertilizer is zero. The expected value of applying fertilizer is equal to $A - B$, which has a small positive value ($A$ is greater than $B$). This is the decision with the expected maximum value $EMV$ under uncertainty. 
 
-The Expected Value given Perfect Information $EV|PI$ is equal to $A$ and $EVPI$ is caculated as the difference between this and $EMV$ ($A-B$).
+The Expected Value given Perfect Information $EV|PI$ is equal to $A$ and $EVPI$ is caculated as the difference between this and $EMV$.
 
 $$
 EVPI :      A – (A - B) = B
@@ -94,7 +94,7 @@ $$
 
 # R Tools
 
-The *empirical_EVPI()* function in R's decisionSupport library [@decisionSupport2017] calculates EVPI for a simple model like the one above. The *multi_EVPI()* function does the same with more complex models with multiple variables.
+The *empirical_EVPI()* function in R's decisionSupport library [@decisionSupport2017] calculates EVPI for a simple model with continuous data like the one above. The *multi_EVPI()* function does the same with more complex models with multiple variables.
 
 # References
 
