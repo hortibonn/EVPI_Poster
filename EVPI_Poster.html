@@ -300,7 +300,7 @@ font-size: 20pt;
 <p>EVPI is calculated as the difference between:</p>
 <ol style="list-style-type: decimal">
 <li><p>The expected value of the outcome variable <span class="math inline">\(EV\)</span> given accurate knowledge on the value that a tested input variable will take (perfect information - <span class="math inline">\(PI\)</span>) and</p></li>
-<li><p>the expected maximum value (<span class="math inline">\(EMV\)</span>) of the outcome variable given knowledge only about the probability distribution of the input variable<span class="citation"><sup>3</sup></span>.</p></li>
+<li><p>The expected maximum value (<span class="math inline">\(EMV\)</span>) of the outcome variable given knowledge only about the probability distribution of the input variable<span class="citation"><sup>3</sup></span>.</p></li>
 </ol>
 <p><span class="math display">\[
 EVPI = EV|PI - EMV
@@ -308,7 +308,7 @@ EVPI = EV|PI - EMV
 Note that the imperfect information is defined as exact knowledge on the probability distribution of the input variable. It is not meant to capture knowledge uncertainty about the true value of the variable.</p>
 </div>
 <div id="evpi-with-discrete-probabilities" class="section level1">
-<h1>EVPI with discrete probabilities</h1>
+<h1><em>EVPI with discrete probabilities</em></h1>
 <p>Calculating <span class="math inline">\(EVPI\)</span> with discrete probability distributions is relatively straightforward. We use the example of investment in the stock market vs. deposits (bonds):</p>
 <p><img src="images/stock_market_example.jpg" alt="stock market example" align="center" width = "85%" height="85%"/></p>
 <p>The expected value of deposit investment <span class="math inline">\(Expdeposit\)</span> is calculated as the probability of different states of the economy (x-axis) times the expected loss or gain in each condition (y-axis):
@@ -319,7 +319,7 @@ Expdeposit : 0.2 \cdot 500 + 0.3 \cdot 500
 Likewise, expected value of stock investment <span class="math inline">\(Expstock\)</span> is the probability of each possible state of the economy (x-axis) times the expected losses or gains (y-axis):
 <span class="math display">\[ Expstock:   0.2 \cdot -800 + 0.3 \cdot 600
         + 0.5 \cdot 1500        = 680 \]</span></p>
-<p>Because <span class="math inline">\(Expstock\)</span> is the more likely decision to result in a gain it is referred to as the Expected Maximum Value <span class="math inline">\(EMV\)</span>.</p>
+<p>Because <span class="math inline">\(Expstock\)</span> is the more likely decision to result in a gain it is referred to as the expected maximum value <span class="math inline">\(EMV\)</span>.</p>
 <p>The expected value of the decision <em>given</em> perfect information <span class="math inline">\(EV|PI\)</span> prior to decision is calculated as the sum of all the best options (always making the more gainful choice) multipled by the respective probabilities:
 <span class="math display">\[
 EV|PI :     0.2 \cdot 500 + 0.3 \cdot 600 
@@ -332,11 +332,10 @@ EVPI :      1030 – 680      = 350
 Knowing the direction the market will go (having perfect information) before making our decision would help us take the best deision here. We should be willing to pay up to 350€ for perfect information on the future state of the economy.</p>
 </div>
 <div id="evpi-with-continuous-probabilities" class="section level1">
-<h1>EVPI with continuous probabilities</h1>
-<p>In the following example of an agricultural decision to apply fertilizer, we assume that the nutrient content of the soil will follow a normal distribution and that the additional gain in yield under the decision not to apply fertilizer will remain constant (<span style="color:green">green line</span>).</p>
+<h1><em>EVPI with continuous probabilities</em></h1>
+<p>In the following example of an agricultural decision to apply fertilizer, we assume that the nutrient content of the soil will follow a normal distribution and that the additional gain in yield under the decision not to apply fertilizer will remain constant (<span style="color:green">green line</span>). In this case the expected gain in yield for the decision to not apply fertilizer is simply zero.</p>
 <p>We simulate a response of the application of fertilizer (<span style="color:red">red line</span>) to show that at a certain point the positive results of the application ends and the fertilizer starts to cause losses in yield.</p>
-<p>The expected gain in yield for the decision to not apply fertilizer is simply zero.
-To calculate the expected gain in yield when applying fertilizer, we multiply the red line with the normal density distribution (analog to multiplying the gains and losses with the probability of the marked going in the respective directions in the example above) and add up the resulting areas under the curve: <span class="math inline">\(A-B\)</span>. As the positive part <span class="math inline">\(A\)</span> is greater than the negative part <span class="math inline">\(B\)</span>, the expected value of applying fertilizer has a small positive value. Therefore, applying fertilizer is the decision with the expected maximum value <span class="math inline">\(EMV\)</span> under imperfect knowledge.</p>
+<p>To calculate the expected gain in yield when applying fertilizer, we multiply the red line with the normal density distribution (similar to multiplying the gains and losses with the state of the market in our discrete example) and add up the resulting areas under the curve: <span class="math inline">\(A-B\)</span>. As the positive part <span class="math inline">\(A\)</span> is greater than the negative part <span class="math inline">\(B\)</span>, the expected value of applying fertilizer has a small positive value. Therefore, applying fertilizer is the decision with the expected maximum value <span class="math inline">\(EMV\)</span> under imperfect knowledge.</p>
 <p><img src="images/Agriculture_example.jpg" alt="agriculture example" align="center" width = "85%" height="85%"/></p>
 <p>The expected value given perfect information <span class="math inline">\(EV|PI\)</span> is equal to <span class="math inline">\(A\)</span>, because up to the nutrient content, where the line intersects zero, the best decision is to apply fertilizer, but for higher nutrient contents no fertilizer should be added. The <span class="math inline">\(EVPI\)</span> is then again caculated as the difference between <span class="math inline">\(EV|PI\)</span> and <span class="math inline">\(EMV\)</span>.</p>
 <p><span class="math display">\[
