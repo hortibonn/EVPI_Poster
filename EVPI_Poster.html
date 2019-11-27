@@ -284,7 +284,7 @@ font-size: 20pt;
 <div class= "poster_title">
 <h1 id="title">Expected Value of Perfect Information</h1>
 <h3 id="author">Katja Schiffers<sup>1, <a class="orcid" href="https://orcid.org/0000-0003-2559-6579"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup>, Cory Whitney<sup>1, <a class="orcid" href="https://orcid.org/0000-0003-4988-4583"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup>, Eike Luedeling<sup>1, <a class="orcid" href="https://orcid.org/0000-0002-7316-3631"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup></h3><br>
-<h5 id="affiliation"><sup>1</sup> INRES Horticultural Sciences, University of Bonn <br /> Auf dem Huegel 6, 53121 Bonn, Germany</h5>
+<h5 id="affiliation"><sup>1</sup> INRES Horticultural Sciences, University of Bonn <br /> Auf dem Hügel 6, 53121 Bonn, Germany</h5>
 </div>
 <!-- Right Logo  -->
 <div class="logo_right">
@@ -294,6 +294,14 @@ font-size: 20pt;
 
 <div class='poster_body_wrap'>
 <div class='poster_body'>
+<!-- we are using the package posterdown. look there for more templates -->
+<!-- Spelling -->
+<!-- The ABC √ option (upper right on the Rmarkdown console)-->
+<!-- Grammar -->
+<!-- devtools::install_github("ropenscilabs/gramr") -->
+<!-- run_grammar_checker("EVPI_Poster.rmd”) -->
+<!-- Print pdf -->
+<!-- rmarkdown::render("EVPI_Poster.Rmd", output_format = "pdf_document") -->
 <div id="what-is-the-evpi" class="section level1">
 <h1>What is the EVPI?</h1>
 <p>The expected value of perfect information (EVPI) is a concept developed in decision analysis. It quantifies the potential gain in the units of an output variable of a projection model given accurate knowledge on the value a tested input variable will take. EVPI can help identify those variables for which more information would maximize the model output<span class="citation"><sup>1</sup></span>. When the output variable is monetary, the EVPI can be interpreted as the highest price that decision makers should be willing to pay for perfect information<span class="citation"><sup>2</sup></span>.</p>
@@ -306,7 +314,12 @@ Note that the imperfect information is defined as exact knowledge on the probabi
 <div id="discrete-probability-example" class="section level1">
 <h1>Discrete probability example</h1>
 <p>Calculating <span class="math inline">\(EVPI\)</span> with discrete probability distributions is relatively straightforward. We use the example of investment in the stock market vs. deposits (bonds):</p>
-<p><img src="images/stock_market_example.jpg" alt="stock market example" align="center" width = "70%" height="70%"/></p>
+<center>
+<div class="figure">
+<img src="images/stock_market_example.jpg" alt="Example of investment in the stock market vs. deposits (bonds)" />
+<p class="caption">Example of investment in the stock market vs. deposits (bonds)</p>
+</div>
+</center>
 <p>The expected value of deposit investment <span class="math inline">\(Expdeposit\)</span> is calculated as the probability of different states of the economy (x-axis) times the expected loss or gain in each condition (y-axis):
 <span class="math display">\[
 Expdeposit : 0.2 \cdot 500 + 0.3 \cdot 500 
@@ -332,7 +345,12 @@ Knowing the direction the market will go (having perfect information) before mak
 <p>In the following example of an agricultural decision to apply fertilizer, we assume that the nutrient content of the soil will follow a normal distribution and that the additional gain in yield under the decision not to apply fertilizer will remain constant (<span style="color:green">green line</span>). Therefore the expected gain for the decision to not apply fertilizer is simply zero.</p>
 <p>Further we assume when applying fertilizer the effect on additional gain is negatively correlated with the nutrient content of the soil and becomes negative at a certain level of nutrients and causes losses in yield due to toxic effects (<span style="color:red">dashed red line</span>).</p>
 <p>To calculate the expected gain in yield when applying fertilizer, we multiply the dashed red line with the normal density distribution (analog to multiplying the gains and losses with the probability of the market going in the respective directions in the previous example). For the resulting weighted response (<span style="color:red">red line</span>) we add up the areas under the curve: <span class="math inline">\(A-B\)</span>. As the positive part <span class="math inline">\(A\)</span> is greater than the negative part <span class="math inline">\(B\)</span>, the expected value of applying fertilizer has a small positive value. Therefore, applying fertilizer is the decision with the expected maximum value <span class="math inline">\(EMV\)</span> under imperfect knowledge.</p>
-<p><img src="images/EVPI_figure2.jpg" alt="agriculture example" align="center" width = "70%" height="70%"/></p>
+<center>
+<div class="figure">
+<img src="images/EVPI_figure2.jpg" alt="Example of an agricultural decision to apply fertilizer" />
+<p class="caption">Example of an agricultural decision to apply fertilizer</p>
+</div>
+</center>
 <p>The expected value given perfect information <span class="math inline">\(EV|PI\)</span> is equal to <span class="math inline">\(A\)</span>, because up to the nutrient content, where the line intersects zero, the best decision is to apply fertilizer, but for higher nutrient contents no fertilizer should be added. The <span class="math inline">\(EVPI\)</span> is then again calculated as the difference between <span class="math inline">\(EV|PI\)</span> and <span class="math inline">\(EMV\)</span>.</p>
 <p><span class="math display">\[
 EVPI :      A – (A - B) = B

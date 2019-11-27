@@ -13,7 +13,7 @@ author:
     orcid: '0000-0002-7316-3631'
 affiliation:
   - num: 1
-    address: INRES Horticultural Sciences, University of Bonn <br /> Auf dem Huegel 6, 53121 Bonn, Germany
+    address: INRES Horticultural Sciences, University of Bonn <br /> Auf dem Hügel 6, 53121 Bonn, Germany
 column_numbers: 2
 logoright_name: images/Uni_Bonn_Picture.png
 logoleft_name: images/INRES_Logo.png
@@ -30,7 +30,20 @@ output:
 bibliography: EVPI.bib
 ---
 
+<!-- we are using the package posterdown. look there for more templates -->
+
+<!-- Spelling -->
+<!-- The ABC √ option (upper right on the Rmarkdown console)-->
+
+<!-- Grammar -->
+<!-- devtools::install_github("ropenscilabs/gramr") -->
+<!-- run_grammar_checker("EVPI_Poster.rmd”) -->
+
+<!-- Print pdf -->
+<!-- rmarkdown::render("EVPI_Poster.Rmd", output_format = "pdf_document") -->
+
 ```{r setup, include=FALSE}
+library(posterdown)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
@@ -48,7 +61,11 @@ Note that the imperfect information is defined as exact knowledge on the probabi
 
 Calculating $EVPI$ with discrete probability distributions is relatively straightforward. We use the example of investment in the stock market vs. deposits (bonds): 
 
-<img src="images/stock_market_example.jpg" alt="stock market example" align="center" width = "70%" height="70%"/>
+<center>
+
+![Example of investment in the stock market vs. deposits (bonds)](images/stock_market_example.jpg)
+
+</center>
 
 The expected value of deposit investment $Expdeposit$ is calculated as the probability of different states of the economy (x-axis) times the expected loss or gain in each condition (y-axis):
 $$
@@ -79,10 +96,14 @@ In the following example of an agricultural decision to apply fertilizer, we ass
 
 Further we assume when applying fertilizer the effect on additional gain is negatively correlated with the nutrient content of the soil and becomes negative at a certain level of nutrients and causes losses in yield due to toxic effects (<span style="color:red">dashed red line</span>). 
 
-
 To calculate the expected gain in yield when applying fertilizer, we multiply the dashed red line with the normal density distribution (analog to multiplying the gains and losses with the probability of the market going in the respective directions in the previous example). For the resulting weighted response (<span style="color:red">red line</span>) we add up the areas under the curve: $A-B$. As the positive part $A$ is greater than the negative part $B$, the expected value of applying fertilizer has a small positive value. Therefore, applying fertilizer is the decision with the expected maximum value $EMV$ under imperfect knowledge. 
 
-<img src="images/EVPI_figure2.jpg" alt="agriculture example" align="center" width = "70%" height="70%"/>
+<center>
+
+![Example of an agricultural decision to apply fertilizer](images/EVPI_figure2.jpg)
+
+
+</center>
 
 The expected value given perfect information $EV|PI$ is equal to $A$, because up to the nutrient content, where the line intersects zero, the best decision is to apply fertilizer, but for higher nutrient contents no fertilizer should be added. The $EVPI$ is then again calculated as the difference between $EV|PI$ and $EMV$.
 
