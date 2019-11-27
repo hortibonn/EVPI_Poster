@@ -77,14 +77,14 @@ Knowing the direction the market will go (having perfect information) before mak
 
 ## Continuous probability distribution
 
-In the following example of an agricultural decision to apply fertilizer, we assume that the nutrient content of the soil will follow a normal distribution and that the additional gain in yield under the decision not to apply fertilizer will remain constant (<span style="color:green">green line</span>). 
+In the following example of an agricultural decision to apply fertilizer, we assume that the nutrient content of the soil will follow a normal distribution and that the additional gain in yield under the decision not to apply fertilizer will remain constant (<span style="color:green">green line</span>). Therefore the expected gain for the decision to not apply fertilizer is simply zero.
 
-We simulate a response of the application of fertilizer (<span style="color:red">red line</span>) to show that at a certain point the positive results of the application ends and the fertilizer starts to cause losses in yield. 
+Further we assume when applying fertilizer the effect on additional gain is negatively correlated with the nutrient content of the soil and becomes even negative at a certain level of nutrients and causes losses in yield due to toxic effects (<span style="color:red">dashed red line</span>). 
 
-The expected gain in yield for the decision to not apply fertilizer is simply zero.
-To calculate the expected gain in yield when applying fertilizer, we multiply the red line with the normal density distribution (analog to multiplying the gains and losses with the probability of the marked going in the respective directions in the example above) and add up the resulting areas under the curve: $A-B$. As the positive part $A$ is greater than the negative part $B$, the expected value of applying fertilizer has a small positive value. Therefore, applying fertilizer is the decision with the expected maximum value $EMV$ under imperfect knowledge. 
 
-<img src="images/Agriculture_example.jpg" alt="agriculture example" align="center" width = "75%" height="75%"/>
+To calculate the expected gain in yield when applying fertilizer, we multiply the dashed red line with the normal density distribution (analog to multiplying the gains and losses with the probability of the marked going in the respective directions in the example above). For the resulting weighted response (<span style="color:red">red line</span>) we add up the areas under the curve: $A-B$. As the positive part $A$ is greater than the negative part $B$, the expected value of applying fertilizer has a small positive value. Therefore, applying fertilizer is the decision with the expected maximum value $EMV$ under imperfect knowledge. 
+
+<img src="images/EVPI_figure2.png" alt="agriculture example" align="center" width = "75%" height="75%"/>
 
 The expected value given perfect information $EV|PI$ is equal to $A$, because up to the nutrient content, where the line intersects zero, the best decision is to apply fertilizer, but for higher nutrient contents no fertilizer should be added. The $EVPI$ is then again caculated as the difference between $EV|PI$ and $EMV$.
 
