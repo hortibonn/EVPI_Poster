@@ -13,7 +13,7 @@ author:
     orcid: '0000-0002-7316-3631'
 affiliation:
   - num: 1
-    address: INRES Horticultural Sciences, University of Bonn
+    address: INRES Horticultural Sciences, University of Bonn <br /> Auf dem Huegel 6, 53121 Bonn, Germany
 column_numbers: 2
 logoright_name: images/Uni_Bonn_Picture.png
 logoleft_name: images/INRES_Logo.png
@@ -22,7 +22,7 @@ title_textcol: "black"
 author_textcol: "black"
 affiliation_textcol: "black"
 sectitle_textcol: "black"
-poster_height: "53in"
+poster_height: "47in"
 poster_width: "33in"
 output: 
   posterdown::posterdown_html:
@@ -36,7 +36,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # What is the EVPI?
 
-The expected value of perfect information (EVPI) is a concept developed in decision analysis. It quantifies the potential gain in units of an output variable of a projection model given accurate knowledge on the value a tested input variable will take. EVPI can help identify those variables for which more information would maximize the model output [@lanzanova2019]. When the output variable is monetary, the EVPI can be interpreted as the highest price that decision makers should be willing to pay for perfect information [@hubbard2014].
+The expected value of perfect information (EVPI) is a concept developed in decision analysis. It quantifies the potential gain in the units of an output variable of a projection model given accurate knowledge on the value a tested input variable will take. EVPI can help identify those variables for which more information would maximize the model output [@lanzanova2019]. When the output variable is monetary, the EVPI can be interpreted as the highest price that decision makers should be willing to pay for perfect information [@hubbard2014].
 
 EVPI is calculated as the difference between the expected value of the outcome variable $EV$ given accurate knowledge on the value the tested input variable will take (perfect information - $PI$) and the expected maximum value ($EMV$) of the outcome variable given only knowledge about the probability distribution of the input variable (imperfect knowledge $II$) [@Strong2014].
 $$
@@ -44,13 +44,11 @@ EVPI = EV|PI - EMV
 $$
 Note that the imperfect information is defined as exact knowledge on the probability distribution of the input variable. It is not meant to capture knowledge uncertainty about the true value of the variable.
 
-# Examples
-
-## Discrete probability distribution 
+# Discrete probability example
 
 Calculating $EVPI$ with discrete probability distributions is relatively straightforward. We use the example of investment in the stock market vs. deposits (bonds): 
 
-<img src="images/stock_market_example.jpg" alt="stock market example" align="center" width = "75%" height="75%"/>
+<img src="images/stock_market_example.jpg" alt="stock market example" align="center" width = "70%" height="70%"/>
 
 The expected value of deposit investment $Expdeposit$ is calculated as the probability of different states of the economy (x-axis) times the expected loss or gain in each condition (y-axis):
 $$
@@ -63,7 +61,7 @@ $$ Expstock:   0.2 \cdot -800 + 0.3 \cdot 600
 		
 Because  $Expstock$ is the more likely decision to result in a gain it is referred to as the Expected Maximum Value $EMV$.
 
-The expected value of the decision *given* perfect information $EV|PI$ prior to decision is calculated as the sum of all the best options (always making the more gainful choice) multipled by the respective probabilities:
+The expected value of the decision *given* perfect information $EV|PI$ prior to decision is calculated as the sum of all the best options (always making the more gainful choice) multiples by the respective probabilities:
 $$
 EV|PI :     0.2 \cdot 500 + 0.3 \cdot 600 
 		+ 0.5 \cdot 1500  		= 1030
@@ -73,26 +71,26 @@ The Expected Value of Perfect Information $EVPI$ is then calculated as the diffe
 $$
 EVPI :      1030 – 680 		= 350
 $$
-Knowing the direction the market will go (having perfect information) before making our decision would help us take the best deision here. We should be willing to pay up to 350€ for perfect information on the future state of the economy. 
+Knowing the direction the market will go (having perfect information) before making our decision would help us take the best derision here. We should be willing to pay up to 350€ for perfect information on the future state of the economy. 
 
-## Continuous probability distribution
+# Continuous probability example
 
 In the following example of an agricultural decision to apply fertilizer, we assume that the nutrient content of the soil will follow a normal distribution and that the additional gain in yield under the decision not to apply fertilizer will remain constant (<span style="color:green">green line</span>). Therefore the expected gain for the decision to not apply fertilizer is simply zero.
 
-Further we assume when applying fertilizer the effect on additional gain is negatively correlated with the nutrient content of the soil and becomes even negative at a certain level of nutrients and causes losses in yield due to toxic effects (<span style="color:red">dashed red line</span>). 
+Further we assume when applying fertilizer the effect on additional gain is negatively correlated with the nutrient content of the soil and becomes negative at a certain level of nutrients and causes losses in yield due to toxic effects (<span style="color:red">dashed red line</span>). 
 
 
-To calculate the expected gain in yield when applying fertilizer, we multiply the dashed red line with the normal density distribution (analog to multiplying the gains and losses with the probability of the marked going in the respective directions in the example above). For the resulting weighted response (<span style="color:red">red line</span>) we add up the areas under the curve: $A-B$. As the positive part $A$ is greater than the negative part $B$, the expected value of applying fertilizer has a small positive value. Therefore, applying fertilizer is the decision with the expected maximum value $EMV$ under imperfect knowledge. 
+To calculate the expected gain in yield when applying fertilizer, we multiply the dashed red line with the normal density distribution (analog to multiplying the gains and losses with the probability of the market going in the respective directions in the previous example). For the resulting weighted response (<span style="color:red">red line</span>) we add up the areas under the curve: $A-B$. As the positive part $A$ is greater than the negative part $B$, the expected value of applying fertilizer has a small positive value. Therefore, applying fertilizer is the decision with the expected maximum value $EMV$ under imperfect knowledge. 
 
-<img src="images/EVPI_figure2.png" alt="agriculture example" align="center" width = "75%" height="75%"/>
+<img src="images/EVPI_figure2.jpg" alt="agriculture example" align="center" width = "70%" height="70%"/>
 
-The expected value given perfect information $EV|PI$ is equal to $A$, because up to the nutrient content, where the line intersects zero, the best decision is to apply fertilizer, but for higher nutrient contents no fertilizer should be added. The $EVPI$ is then again caculated as the difference between $EV|PI$ and $EMV$.
+The expected value given perfect information $EV|PI$ is equal to $A$, because up to the nutrient content, where the line intersects zero, the best decision is to apply fertilizer, but for higher nutrient contents no fertilizer should be added. The $EVPI$ is then again calculated as the difference between $EV|PI$ and $EMV$.
 
 $$
 EVPI :      A – (A - B) = B
 $$
 
-# R Tools
+# Calculate EVPI in R
 
 The *empirical_EVPI()* function in R's decisionSupport library [@decisionSupport2017] calculates EVPI for a simple model with continuous data like the one above. The *multi_EVPI()* function does the same with more complex models with multiple variables.
 
