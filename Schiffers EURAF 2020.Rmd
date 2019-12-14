@@ -30,7 +30,7 @@ Note that the imperfect information is defined as exact knowledge on the probabi
 
 # Discrete probability example
 
-Calculating $EVPI$ with discrete probability distributions is relatively straightforward. We use the example of investment in the stock market vs. deposits (bonds): 
+Calculating $EVPI$ with discrete probability distributions is relatively straightforward. Figure 1 (left) we provide an example of investment in the stock market vs. deposits (bonds): 
 
 The expected value of deposit investment $Expdeposit$ is calculated as the probability of different states of the economy (x-axis) times the expected loss or gain in each condition (y-axis):
 
@@ -61,9 +61,14 @@ $$
 
 Knowing the direction the market will go (having perfect information) before making our decision would help us take the best derision here. We should be willing to pay up to 350€ for perfect information on the future state of the economy. 
 
+```{r, echo=FALSE,out.width="49%",  out.height="20%",fig.cap="Figure 1. Example of EVPI calculated for investment in the stock market vs. deposits (left) and an agricultural decision to apply fertilizer (right).",fig.show='hold',fig.align='center'}
+knitr::include_graphics(c("images/stock_market_example.jpg","images/EVPI_figure2.png"))
+``` 
+
+
 # Continuous probability example
 
-In the following example of an agricultural decision to apply fertilizer, we assume that the nutrient content of the soil will follow a normal distribution and that the additional gain in yield under the decision not to apply fertilizer will remain constant (<span style="color:green">green line</span>). Therefore the expected gain for the decision to not apply fertilizer is simply zero.
+In Figure 1 (right) we provide an example of an agricultural decision to apply fertilizer, we assume that the nutrient content of the soil will follow a normal distribution and that the additional gain in yield under the decision not to apply fertilizer will remain constant (<span style="color:green">green line</span>). Therefore the expected gain for the decision to not apply fertilizer is simply zero.
 
 Further we assume when applying fertilizer the effect on additional gain is negatively correlated with the nutrient content of the soil and becomes negative at a certain level of nutrients and causes losses in yield due to toxic effects (<span style="color:red">dashed red line</span>). 
 
@@ -79,10 +84,6 @@ $$
 
 The *empirical_EVPI()* function in R's decisionSupport library [@decisionSupport2017] calculates EVPI for a simple model with continuous data like the one above. The *multi_EVPI()* function does the same with more complex models with multiple variables.
 
-```{r, echo=FALSE,out.width="49%",  out.height="20%",fig.cap="caption",fig.show='hold',fig.align='center'}
-knitr::include_graphics(c("images/stock_market_example.jpg","images/EVPI_figure2.png"))
-``` 
-**Figure 1.** *Example of EVPI calculated for investment in the stock market vs. deposits (left) and an agricultural decision to apply fertilizer (right).*
 
 # References
 
