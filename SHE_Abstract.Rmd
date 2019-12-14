@@ -1,0 +1,89 @@
+---
+title: "Defining research priorities in complex Agroforestry systems"
+author: Katja Schiffers^a^, Cory Whitney^a^ and Eike Luedeling^a^ <br /><br /> <small>^a^INRES-Horticultural Sciences, University of Bonn, Auf dem Huegel 6, 53121 Bonn, Germany <small/>
+output:
+  pdf_document: default
+  html_document: default
+bibliography: EVPI.bib
+csl: agroforestry-systems.csl
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Defining research priorities
+
+Agroforestry systems are notoriosuly complex and interventions to them are frought with uncertainties. In our work we apply decision models to simulate intervention outcomes [@decisionSupport2017]. One useful output of the decision approaches in the Expected Value of Perfect Information (EVPI) calculation, which we can be useful for defining research priorities [@hubbard2014]. We share two examples of how to apply the EVPI in practice.
+
+# What is the EVPI?
+
+The expected value of perfect information (EVPI) is a concept developed in decision analysis. It quantifies the potential gain in the units of an output variable of a projection model given accurate knowledge on the value a tested input variable will take. EVPI can help identify those variables for which more information would maximize the model output [@lanzanova2019]. When the output variable is monetary, the EVPI can be interpreted as the highest price that decision makers should be willing to pay for perfect information [@hubbard2014].
+
+EVPI is calculated as the difference between the expected value of the outcome variable $EV$ given accurate knowledge on the value the tested input variable will take (perfect information - $PI$) and the expected maximum value ($EMV$) of the outcome variable given only knowledge about the probability distribution of the input variable (imperfect knowledge $II$) [@Strong2014].
+
+$$
+EVPI = EV|PI - EMV
+$$
+
+Note that the imperfect information is defined as exact knowledge on the probability distribution of the input variable. It is not meant to capture knowledge uncertainty about the true value of the variable.
+
+# Discrete probability example
+
+Calculating $EVPI$ with discrete probability distributions is relatively straightforward. We use the example of investment in the stock market vs. deposits (bonds): 
+
+The expected value of deposit investment $Expdeposit$ is calculated as the probability of different states of the economy (x-axis) times the expected loss or gain in each condition (y-axis):
+
+$$
+Expdeposit : 0.2 \cdot 500 + 0.3 \cdot 500 
+		+ 0.5 \cdot 500 		= 500 
+$$
+
+Likewise, expected value of stock investment $Expstock$ is the probability of each possible state of the economy (x-axis) times the expected losses or gains (y-axis):
+
+$$ Expstock:   0.2 \cdot -800 + 0.3 \cdot 600
+		+ 0.5 \cdot 1500		= 680 $$
+		
+Because  $Expstock$ is the more likely decision to result in a gain it is referred to as the Expected Maximum Value $EMV$.
+
+The expected value of the decision *given* perfect information $EV|PI$ prior to decision is calculated as the sum of all the best options (always making the more gainful choice) multiples by the respective probabilities:
+
+$$
+EV|PI :     0.2 \cdot 500 + 0.3 \cdot 600 
+		+ 0.5 \cdot 1500  		= 1030
+$$
+
+The Expected Value of Perfect Information $EVPI$ is then calculated as the difference between the decision given perfect information $EV|PI$ and the the Expected Maximum Value $EMV$.
+
+$$
+EVPI :      1030 – 680 		= 350
+$$
+
+Knowing the direction the market will go (having perfect information) before making our decision would help us take the best derision here. We should be willing to pay up to 350€ for perfect information on the future state of the economy. 
+
+# Continuous probability example
+
+In the following example of an agricultural decision to apply fertilizer, we assume that the nutrient content of the soil will follow a normal distribution and that the additional gain in yield under the decision not to apply fertilizer will remain constant (<span style="color:green">green line</span>). Therefore the expected gain for the decision to not apply fertilizer is simply zero.
+
+Further we assume when applying fertilizer the effect on additional gain is negatively correlated with the nutrient content of the soil and becomes negative at a certain level of nutrients and causes losses in yield due to toxic effects (<span style="color:red">dashed red line</span>). 
+
+To calculate the expected gain in yield when applying fertilizer, we multiply the dashed red line with the normal density distribution (analog to multiplying the gains and losses with the probability of the market going in the respective directions in the previous example). For the resulting weighted response (<span style="color:red">red line</span>) we add up the areas under the curve: $A-B$. As the positive part $A$ is greater than the negative part $B$, the expected value of applying fertilizer has a small positive value. Therefore, applying fertilizer is the decision with the expected maximum value $EMV$ under imperfect knowledge. 
+
+The expected value given perfect information $EV|PI$ is equal to $A$, because up to the nutrient content, where the line intersects zero, the best decision is to apply fertilizer, but for higher nutrient contents no fertilizer should be added. The $EVPI$ is then again calculated as the difference between $EV|PI$ and $EMV$.
+
+$$
+EVPI :      A – (A - B) = B
+$$
+
+# Calculate EVPI in R
+
+The *empirical_EVPI()* function in R's decisionSupport library [@decisionSupport2017] calculates EVPI for a simple model with continuous data like the one above. The *multi_EVPI()* function does the same with more complex models with multiple variables.
+
+```{r, echo=FALSE,out.width="49%",  out.height="20%",fig.cap="caption",fig.show='hold',fig.align='center'}
+knitr::include_graphics(c("images/stock_market_example.jpg","images/EVPI_figure2.png"))
+``` 
+**Figure 1.** *Example of EVPI calculated for investment in the stock market vs. deposits (left) and an agricultural decision to apply fertilizer (right).*
+
+# References
+
+
