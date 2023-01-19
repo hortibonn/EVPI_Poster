@@ -86,9 +86,9 @@ $$
 
 The Expected Value of Perfect Information $EVPI$ is then calculated as the difference between the decision given perfect information $EV|PI$ and the the Expected Maximum Value $EMV$.
 $$
-EVPI :      1030 – 680 		= 350
+EVPI :      1030 – 770 		= 260
 $$
-Knowing the direction the market will go (having perfect information) before making our decision would help us take the best derision here. We should be willing to pay up to 350€ for perfect information on the future state of the economy. 
+Knowing the direction the market will go (having perfect information) before making our decision would help us take the best derision here. We should be willing to pay up to 260€ for perfect information on the future state of the economy. 
 
 # Continuous probability example
 
