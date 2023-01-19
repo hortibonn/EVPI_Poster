@@ -59,7 +59,7 @@ Expdeposit : 0.2 \cdot 500 + 0.3 \cdot 500
 $$
 Likewise, expected value of stock investment $Expstock$ is the probability of each possible state of the economy (x-axis) times the expected losses or gains (y-axis):
 $$ Expstock:   0.2 \cdot -800 + 0.3 \cdot 600
-		+ 0.5 \cdot 1500		= 680 $$
+		+ 0.5 \cdot 1500		= 770 $$
 		
 Because  $Expstock$ is the more likely decision to result in a gain it is referred to as the Expected Maximum Value $EMV$.
 
@@ -71,7 +71,7 @@ $$
 
 The Expected Value of Perfect Information $EVPI$ is then calculated as the difference between the decision given perfect information $EV|PI$ and the the Expected Maximum Value $EMV$.
 $$
-EVPI :      1030 – 680 		= 350
+EVPI :      1030 – 770 		= 260
 $$
 Knowing the direction the market will go (having perfect information) before making our decision would help us take the best deision here. We should be willing to pay up to 350€ for perfect information on the future state of the economy. 
 
